@@ -1,26 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Person from './Person/Person'
+
 
 class App extends Component {
+
+  state = {
+      people: [
+        {name: 'Dmitrii', age: 29, hobbies: 'Hobby: Video Games'},
+        {name: 'John', age: 30, hobbies: 'Likes drinking alone'}
+      ]
+  };
+
+  changeName = (event) => {
+    const person = {...this.state.people[1]};
+    person.name = event.target.value;
+
+    const people = [...this.state.people];
+    people[1] = person;
+
+    this.setState({people});
+  };
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Person
+        name={this.state.people[1].name}
+        age={this.state.people[1].age}
+        changeName={this.changeName}
+      />
     );
   }
 }
