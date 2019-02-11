@@ -11,6 +11,7 @@ let Person = (props) => {
       value={props.name}
       onChange={props.changeName}
     /></p>
+      <p onClick={props.remove}>{props.children}</p>
     </div>
   );
 };

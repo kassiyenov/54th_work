@@ -40,6 +40,14 @@ class App extends Component {
     this.setState({showPeople});
   };
 
+  removePerson = (id) => {
+    const index = this.findIndex(this.state.people, person => person.id === id);
+    const people = [...this.state.people];
+    people.splice(index, 1);
+
+    this.setState({people});
+  };
+
   render() {
     let people = null;
     if (this.state.showPeople) {
@@ -51,7 +59,10 @@ class App extends Component {
               name={person.name}
               age={person.age}
               changeName={event => this.changeName(event, person.id)}
-            />
+              remove={() => this.removePerson(person.id)}
+            >
+              {person.hobbies}
+            </Person>
           })}
         </div>
       );
@@ -59,8 +70,9 @@ class App extends Component {
 
     return (
       <div>
-        <div><button onClick={this.togglePeople}>Toggle people</button></div>
-        {people}
+        <div>
+          <button onClick={this.togglePeople}>Toggle people</button></div>
+          {people}
       </div>
     );
   }
