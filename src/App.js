@@ -35,17 +35,32 @@ class App extends Component {
     this.setState({people});
   };
 
+  togglePeople = () => {
+    const showPeople = !this.state.showPeople;
+    this.setState({showPeople});
+  };
+
   render() {
+    let people = null;
+    if (this.state.showPeople) {
+      people = (
+        <div>
+          {this.state.people.map((person) => {
+            return <Person
+              key={person.id}
+              name={person.name}
+              age={person.age}
+              changeName={event => this.changeName(event, person.id)}
+            />
+          })}
+        </div>
+      );
+    }
+
     return (
       <div>
-        {this.state.people.map((person) => {
-          return <Person
-            key={person.id}
-            name={person.name}
-            age={person.age}
-            changeName={event => this.changeName(event, person.id)}
-          />
-        })}
+        <div><button onClick={this.togglePeople}>Toggle people</button></div>
+        {people}
       </div>
     );
   }

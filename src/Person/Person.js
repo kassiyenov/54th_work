@@ -1,8 +1,9 @@
+import './Person.css'
 import React from 'react';
 
 let Person = (props) => {
   return (
-    <div>
+    <div className="person">
     <h1>{props.name}</h1>
     <span>{props.age}</span>
     <p><input
