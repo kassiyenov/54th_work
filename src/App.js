@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import Person from './Person/Person'
+import People from './components/People/People'
 
 
 class App extends Component {
@@ -51,21 +51,11 @@ class App extends Component {
   render() {
     let people = null;
     if (this.state.showPeople) {
-      people = (
-        <div>
-          {this.state.people.map((person) => {
-            return <Person
-              key={person.id}
-              name={person.name}
-              age={person.age}
-              changeName={event => this.changeName(event, person.id)}
-              remove={() => this.removePerson(person.id)}
-            >
-              {person.hobbies}
-            </Person>
-          })}
-        </div>
-      );
+      people = <People
+        people={this.state.people}
+        changeName={this.changeName}
+        removePerson={this.removePerson}
+      />;
     }
 
     return (

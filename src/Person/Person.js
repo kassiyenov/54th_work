@@ -11,7 +11,7 @@ let Person = (props) => {
       value={props.name}
       onChange={props.changeName}
     /></p>
-      <p onClick={props.remove}>{props.children}</p>
+      <p onClick={props.removePerson}>{props.children}</p>
     </div>
   );
 };
