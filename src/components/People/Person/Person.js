@@ -9,7 +9,7 @@ let Person = (props) => {
     <p><input
       type="text"
       value={props.name}
-      onChange={props.changeName}
+      onChange={props.changeName} 
     /></p>
       <p onClick={props.removePerson}>{props.children}</p>
     </div>

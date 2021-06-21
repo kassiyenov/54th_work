@@ -1,0 +1,25 @@
+.ToggleButton {
+    color: white;
+    border: 1px solid green;
+    background: green;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 14px;
+}
+ 
+.ToggleButton:hover {
+    background: lightgreen;
+    cursor: pointer;
+    color: green;
+}
+
+.ToggleButton-red {
+    background: red;
+    border: 1px solid red;
+}
+
+.ToggleButton-red:hover {
+    background: salmon;
+    color: red;
+}
+  

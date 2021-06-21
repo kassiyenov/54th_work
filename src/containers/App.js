@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
-import People from './components/People/People'
-
+import People from '../components/People/People';
+import ToggleButton from "../components/ToggleButton/ToggleButton";
+import Counter from "../components/Counter/Counter"
 
 class App extends Component {
 
@@ -49,6 +50,7 @@ class App extends Component {
   };
 
   render() {
+
     let people = null;
     if (this.state.showPeople) {
       people = <People
@@ -57,12 +59,17 @@ class App extends Component {
         removePerson={this.removePerson}
       />;
     }
+    
 
     return (
       <div>
-        <div>
-          <button onClick={this.togglePeople}>Toggle people</button></div>
-          {people}
+        <ToggleButton 
+          showPeople={this.state.showPeople} 
+          togglePeople={this.togglePeople} 
+        />
+        <Counter people={this.state.people} />
+
+        {people}
       </div>
     );
   }

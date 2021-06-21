@@ -1,5 +1,5 @@
 import React from 'react';
-import Person from "../../Person/Person";
+import Person from "./Person/Person.js";
 
 let People = (props) => {
   return (
